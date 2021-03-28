@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text;
+using System.IO;
 
 
 namespace ConsoleApp3
@@ -19,10 +19,10 @@ namespace ConsoleApp3
             listPerson.PrintValues();
 
             Console.WriteLine("** Saving Person List to File **");
-            listPerson.SaveToFile(@"C:\Users\edson\source\Person.csv");
+            listPerson.SaveToFile($"{Directory.GetCurrentDirectory()}Person.csv");
 
             Console.WriteLine("** Creating new Person List from File **");
-            FilePersistence<Person> listPerson2 = new FilePersistence<Person>(@"C:\Users\edson\source\Person.csv");
+            FilePersistence<Person> listPerson2 = new FilePersistence<Person>($"{Directory.GetCurrentDirectory()}Person.csv");
 
             Console.WriteLine("** Printing new Person List from File **");
             listPerson2.PrintValues();
